@@ -1,24 +1,25 @@
-# aws-sqs-geturl [![Build Status](https://travis-ci.org/SimonJang/aws-get-sqs-url.svg?branch=master)](https://travis-ci.org/SimonJang/aws-get-sqs-url)
+# aws-sqs-geturl [![Build Status](https://travis-ci.org/SimonJang/aws-sqs-geturl.svg?branch=master)](https://travis-ci.org/SimonJang/aws-sqs-geturl)
 
-> todo
-
+> Retrieve [SQS](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/Welcome.html) url
 
 ## Install
 
 ```
-$ npm install --save aws-get-sqs-url
+$ npm install --save aws-sqs-geturl
 ```
 
 
 ## Usage
 
 ```js
-const awsGetSqsUrl = require('aws-get-sqs-url');
+const awsGetSqsUrl = require('aws-sqs-geturl');
 
-awsGetSqsUrl('unicorns');
-//=> 'unicorns & rainbows'
+awsGetSqsUrl('somequeue');
+//=> https://sqs.eu-west-1.amazonaws.com/123456789111/somequeue
+
+awsGetSqsUrl('anotherqueue', {awsAccountId: '123456789012'})
+// => https://sqs.us-west-1.amazonaws.com/123456789012/anotherqueue
 ```
-
 
 ## API
 
@@ -28,18 +29,21 @@ awsGetSqsUrl('unicorns');
 
 Type: `string`
 
-Lorem ipsum.
+Name of queue
 
 #### options
 
-##### foo
+Type: `object`
 
-Type: `boolean`<br>
-Default: `false`
+Optional.<br/>
+Options object for parameters. Has property `awsAccountId`.
 
-Lorem ipsum.
+##### options.awsAccountId
 
+Type: `string`
+
+Root AWS account id. When undefined it's using the callers id.
 
 ## License
 
-MIT © [simonjang](https://github.com/SimonJang)
+MIT © [Simon Jang](https://github.com/SimonJang)
