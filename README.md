@@ -23,9 +23,9 @@ awsGetSqsUrl('anotherqueue', {awsAccountId: '123456789012'})
 
 ## API
 
-### awsGetSqsUrl(input, [options])
+### awsGetSqsUrl(queueName, [options])
 
-#### input
+#### queueName
 
 Type: `string`
 
