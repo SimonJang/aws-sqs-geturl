@@ -1,0 +1,39 @@
+{
+  "name": "aws-sqs-geturl",
+  "version": "0.0.0",
+  "description": "Retrieve SQS url",
+  "license": "MIT",
+  "repository": "SimonJang/aws-sqs-geturl",
+  "author": {
+    "name": "simonjang",
+    "email": "simon.jang.contact@gmail.com",
+    "url": "github.com/SimonJang"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "sqs",
+    "SQS",
+    "AWS",
+    "aws",
+    "url"
+  ],
+  "dependencies": {
+    "is-aws-account-id": "^1.0.0",
+    "pify": "^2.3.0"
+  },
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "aws-sdk": "^2.48.0",
+    "xo": "^0.17.0",
+    "nyc": "^10.0.0",
+    "sinon": "^2.1.0"
+  }
+}
