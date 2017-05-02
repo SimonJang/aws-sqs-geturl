@@ -1,5 +1,4 @@
 'use strict';
-
 const AWS = require('aws-sdk');
 const pify = require('pify');
 const isAwsAccountId = require('is-aws-account-id');
