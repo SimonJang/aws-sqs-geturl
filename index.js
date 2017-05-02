@@ -8,6 +8,8 @@ const sqs = new AWS.SQS();
 const getQueueUrl = pify(sqs.getQueueUrl.bind(sqs));
 
 module.exports = (queueName, opts) => {
+	opts = opts || {};
+
 	if (typeof queueName !== 'string') {
 		return Promise.reject(new TypeError(`Expected \`queueName\` to be of type \`string\`, got \`${typeof queueName}\``));
 	}
