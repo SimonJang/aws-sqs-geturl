@@ -29,4 +29,8 @@ test('getting queue url', async t => {
 test('getting queue url without AWS account id', async t => {
 	const url = await m('demoqueue');
 	t.is(url, 'https://sqs.eu-west-1.amazonaws.com/123456789111/demoqueue');
+<<<<<<< HEAD
 });
+=======
+})
+>>>>>>> master
