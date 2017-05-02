@@ -1,13 +1,6 @@
-import './fixtures/fake-sqs'; // eslint-disable-line import/no-unassigned-import
 import test from 'ava';
-import sinon from 'sinon';
+import './fixtures/fake-sqs'; // eslint-disable-line import/no-unassigned-import
 import m from '../';
-
-const sandbox = sinon.sandbox.create();
-
-test.after(() => {
-	sandbox.restore();
-});
 
 test('error no queue name', t => {
 	t.throws(m(), 'Expected `queueName` to be of type `string`, got `undefined`');
@@ -30,4 +23,3 @@ test('getting queue url without AWS account id', async t => {
 	const url = await m('demoqueue');
 	t.is(url, 'https://sqs.eu-west-1.amazonaws.com/123456789111/demoqueue');
 });
-

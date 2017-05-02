@@ -1,6 +1,5 @@
 'use strict'
 const AWS = require('aws-sdk');
-const sinon = require('sinon');
 
 class SQS {
 	getQueueUrl(opts, cb) {
@@ -19,7 +18,3 @@ AWS.SQS = function () {
 };
 
 module.exports = sqs;
-
-const stubgetQueueUrl = sinon.stub(sqs, 'receiveMessage');
-stubgetQueueUrl.withArgs({QueueName: 'demoqueue', QueueOwnerAWSAccountId: '123456789111'})
-	.yields(undefined, {QueueUrl: `https://sqs.eu-west-1.amazonaws.com/123456789012/demoqueue`});
