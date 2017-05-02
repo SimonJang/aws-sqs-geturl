@@ -1,6 +1,6 @@
 {
   "name": "aws-sqs-geturl",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Retrieve SQS url",
   "license": "MIT",
   "repository": "SimonJang/aws-sqs-geturl",
