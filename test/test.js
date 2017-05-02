@@ -2,16 +2,16 @@ import test from 'ava';
 import './fixtures/fake-sqs'; // eslint-disable-line import/no-unassigned-import
 import m from '../';
 
-test('error no queue name', t => {
-	t.throws(m(), 'Expected `queueName` to be of type `string`, got `undefined`');
+test('error no queue name', async t => {
+	await t.throws(m(), 'Expected `queueName` to be of type `string`, got `undefined`');
 });
 
-test('invalid queue name test', t => {
-	t.throws(m('l[7777&&]l'), 'Invalid queue name');
+test('invalid queue name test', async t => {
+	await t.throws(m('l[7777&&]l'), 'Invalid queue name');
 });
 
 test('invalid queue not found test', async t => {
-	t.throws(m('trolololo', {awsAccountId: '123456789111'}), 'Queue `trolololo` not found');
+	await t.throws(m('trolololo', {awsAccountId: '123456789111'}), 'Queue `trolololo` not found');
 });
 
 test('getting queue url', async t => {
