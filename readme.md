@@ -2,6 +2,7 @@
 
 > Retrieve [SQS](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/Welcome.html) url
 
+
 ## Install
 
 ```
@@ -14,16 +15,23 @@ $ npm install --save aws-sqs-geturl
 ```js
 const awsGetSqsUrl = require('aws-sqs-geturl');
 
-awsGetSqsUrl('somequeue');
-//=> https://sqs.eu-west-1.amazonaws.com/123456789111/somequeue
+awsGetSqsUrl('somequeue').then(url => {
+	console.log(url);
+	//=> https://sqs.eu-west-1.amazonaws.com/123456789111/somequeue
+});
 
-awsGetSqsUrl('anotherqueue', {awsAccountId: '123456789012'})
-// => https://sqs.us-west-1.amazonaws.com/123456789012/anotherqueue
+awsGetSqsUrl('anotherqueue', {awsAccountId: '123456789012'}).then(url => {
+	console.log(url);
+	//=> https://sqs.us-west-1.amazonaws.com/123456789012/anotherqueue
+});
 ```
+
 
 ## API
 
 ### awsGetSqsUrl(queueName, [options])
+
+Returns a Promise for the queue URL.
 
 #### queueName
 
@@ -33,16 +41,13 @@ Name of queue
 
 #### options
 
-Type: `object`
-
-Optional.<br/>
-Options object for parameters. Has property `awsAccountId`.
-
 ##### options.awsAccountId
 
-Type: `string`
+Type: `string`<br>
+Default: caller account
 
-Root AWS account id. When undefined it's using the callers id.
+AWS account ID of the account that created the queue.
+
 
 ## License
 
